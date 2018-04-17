@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Produit: modification{%endblock%}
+
+{% block body %}
+  <h2 class = "page header">Modifier Produit</h2>
+  {{form_start(f)}}
+  {{form_widget(f)}}
+  {{form_widget(f)}}
+  {{form_end(f)}}
+{%endblock%}

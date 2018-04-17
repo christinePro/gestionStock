@@ -1,0 +1,47 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h2 class = "page header">Ajout Produit</h2>
+    {{form_start(l)}}
+      <br>
+    {{form_widget(l)}}
+    {{form_widget(l)}}
+    <br>
+
+    {{form_end(l)}}
+
+
+
+  {{ form_end(l) }}
+  <table border = "1">
+
+    <thead>
+      <tr>
+        <th>ID Produit</th>
+        <th>Quantité</th>
+      </tr>
+   </thead>
+   <br>
+   <br>
+   <tbody class ="">
+
+    {% for stock in stocks %}
+      <tr>
+        <td>{{ stock.idProduit }}</td>
+        <td>{{ stock.quantity }}</td>
+        <td>
+                <a href="{{ path('edit_stock',{'id':stock.id })}}" class="btn btn-default">modifier produit</a>
+                <a href="/product/delete_stock/{{stock.id }}" class="btn btn-danger">Supprimer produit</a>
+        </td>
+      </tr>
+
+    {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <a href="/product/add_product" class="btn btn-default">Retour</a>
+{% endblock %}
